@@ -3,8 +3,8 @@
 # Color
 # download menu
 cd /root
-wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/install
-chmod +x /root/install
+wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/install.sh
+chmod +x /root/install.sh
 cd
 mkdir /root/bin
 chmod +x /root/bin
