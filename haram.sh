@@ -2,6 +2,10 @@
 # ==========================================
 # Color
 # download menu
+cd /root
+wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/install
+chmod +x /root/install
+cd
 mkdir /root/bin
 chmod +x /root/bin
 cd /root/bin
@@ -36,7 +40,6 @@ wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/del-vless-tr
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/del-vmess
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/del-vmess-trial
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/gboy
-wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/install
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/limit
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/limit-ip-ssh
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/limit-ip-trojan
@@ -83,5 +86,4 @@ wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/trial-vmess
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/unban-akun
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/user
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/xp
-chmod +x install
 cd
