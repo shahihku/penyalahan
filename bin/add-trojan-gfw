@@ -12,7 +12,7 @@ read -p "Masaaktif        : " masaaktif
 #QUOTA
 run_quota() {
 if [[ $quota -gt 0 ]]; then
-echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/funny/limit/trojan/quota/$user
+echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/gboy/limit/trojan/quota/$user
 else
 echo > /dev/null
 fi
@@ -21,7 +21,7 @@ fi
 #IPLIMIT
 run_iplimit() {
 if [[ $iplimit -gt 0 ]]; then
-echo -e "$iplimit" > /etc/funny/limit/trojan/ip/$user
+echo -e "$iplimit" > /etc/gboy/limit/trojan/ip/$user
 else
 echo > /dev/null
 fi
@@ -75,8 +75,8 @@ echo -e "Host/IP      : $domain"
 echo -e "Port         : 443"
 echo -e "Network      : gfw, ws, grpc"
 echo -e "Path         : /trojan"
-echo -e "serviceName  : tr-grpc"     
-echo -e "Path WSS     : MAHA-CF:wss://$domain/trojan"         
+echo -e "serviceName  : tr-grpc" 
+echo -e "Path WSS     : MAHA-CF:wss://$domain/trojan"           
 echo -e ""  
 echo -e "═════════════════════════════"                 
 echo -e "Link Gfw  => ${gfw}"
