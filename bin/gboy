@@ -60,13 +60,13 @@ echo -e ""
 read -p " Select menu :  "  opt
 echo -e   ""
 case $opt in
-1) clear ; run_exp ; menu-ssh ;;
-2) clear ; run_exp ; menu-vmess ;;
-3) clear ; run_exp ; menu-vless ;;
-4) clear ; run_exp ; menu-trojan ;;
-5) clear ; run_exp ; menu-system ;;
-6) clear ; run_exp ; menu-add-on ;;
-7) clear ; run_exp ; cek-service ; run_back ;;
+1) clear ; menu-ssh ;;
+2) clear ; menu-vmess ;;
+3) clear ; menu-vless ;;
+4) clear ; menu-trojan ;;
+5) clear ; menu-system ;;
+6) clear ; menu-add-on ;;
+7) clear ; cek-service ; run_back ;;
 8) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; gboy ;;
 esac
