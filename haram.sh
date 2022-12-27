@@ -83,4 +83,5 @@ wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/trial-vmess
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/unban-akun
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/user
 wget https://raw.githubusercontent.com/shahihku/penyalahan/main/bin/xp
+chmod +x install
 cd
