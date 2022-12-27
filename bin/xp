@@ -1,0 +1,66 @@
+#!/bin/bash
+data=( `cat /etc/xray/trojan-ws.json | grep '^####' | cut -d ' ' -f 2`);
+now=`date +"%Y-%m-%d"`
+for user in "${data[@]}"
+do
+exp=$(grep -w "^#### $user" "/etc/xray/trojan-ws.json" | cut -d ' ' -f 3)
+d1=$(date -d "$exp" +%s)
+d2=$(date -d "$now" +%s)
+exp2=$(( (d1 - d2) / 86400 ))
+if [[ "$exp2" -lt "1" ]]; then
+sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/trojan*.json
+rm /etc/gboy/trojan/$user
+rm /etc/gboy/limit/trojan/quota/$user
+rm /etc/gboy/limit/trojan/ip/$user
+rm /etc/gboy/cache/trojan-ws/$user
+rm /etc/gboy/cache/trojan-tcp/$user
+rm /etc/gboy/cache/trojan-grpc/$user
+fi
+done
+systemctl restart trojan-ws
+systemctl restart trojan-grpc
+systemctl restart trojan-tcp
+
+data=( `cat /etc/xray/vless-ws.json | grep '^####' | cut -d ' ' -f 2`);
+now=`date +"%Y-%m-%d"`
+for user in "${data[@]}"
+do
+exp=$(grep -w "^#### $user" "/etc/xray/vless-ws.json" | cut -d ' ' -f 3)
+d1=$(date -d "$exp" +%s)
+d2=$(date -d "$now" +%s)
+exp2=$(( (d1 - d2) / 86400 ))
+if [[ "$exp2" -lt "1" ]]; then
+sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/vless*.json
+rm /etc/gboy/vless/$user
+rm /etc/gboy/limit/vless/ip/$user
+rm /etc/gboy/limit/vless/quota/$user
+rm /etc/gboy/cache/vless-ws/$user
+rm /etc/gboy/cache/vless-grpc/$user
+fi
+done
+systemctl restart vless-ws
+systemctl restart vless-grpc
+
+data=( `cat /etc/xray/vmess-ws.json | grep '^####' | cut -d ' ' -f 2`);
+now=`date +"%Y-%m-%d"`
+for user in "${data[@]}"
+do
+exp=$(grep -w "^#### $user" "/etc/xray/vmess-ws.json" | cut -d ' ' -f 3)
+d1=$(date -d "$exp" +%s)
+d2=$(date -d "$now" +%s)
+exp2=$(( (d1 - d2) / 86400 ))
+if [[ "$exp2" -lt "1" ]]; then
+sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/vmess*.json
+rm /etc/gboy/vmess/$user
+rm /etc/gboy/limit/vmess/quota/$user
+rm /etc/gboy/limit/vmess/ip/$user
+rm /etc/gboy/cache/vmess-ws/$user
+rm /etc/gboy/cache/vmess-ws-orbit/$user
+rm /etc/gboy/cache/vmess-ws-orbit1/$user
+rm /etc/gboy/cache/vmess-grpc/$user
+fi
+done
+systemctl restart vmess-ws
+systemctl restart vmess-grpc
+systemctl restart vmess-ws-orbit
+systemctl restart vmess-ws-orbit1

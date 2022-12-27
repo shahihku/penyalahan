@@ -1,0 +1,6 @@
+#!/bin/bash
+clear
+echo -e "Cooming Soon "
+echo ""
+read -p "Pres enter untuk kembali ke Home : " kdodo
+!

@@ -1,0 +1,50 @@
+#!/bin/bash
+run_input() {
+read -p "Input Username : " user
+}
+
+run_user() {
+akun=$(cat /etc/xray/vless-ws.json | grep "####" | cut -d " " -f 2 | grep -w $user)
+if [ $akun = $user ]; then
+echo > /dev/null
+else
+echo -e "Username yang anda masukan salah"
+echo -e "Mohon di teliti lagi username vless nya"
+exit
+fi
+}
+
+run_write() {
+exp=$(cat /etc/xray/vless-ws.json | grep "####" | grep -w $user | cut -d " " -f 3)        
+sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/vless*        
+rm /etc/gboy/vless/$user
+rm /etc/gboy/limit/vless/quota/$user
+rm /etc/gboy/limit/vless/ip/$user
+rm /etc/gboy/cache/vless-ws/$user
+rm /etc/gboy/cache/vless-grpc/$user
+}
+
+run_service() {
+systemctl restart vless-ws
+systemctl restart vless-grpc
+}
+
+run_output() {
+domain=$(cat /etc/xray/domain)
+clear
+echo -e "══════════════════════════"  
+echo -e "      =[ Vless ]= "
+echo -e "══════════════════════════"  
+echo -e ""
+echo -e "User   : $user"
+echo -e "Domain : $domain"
+echo -e ""
+echo -e "User Berhasil di hapus"
+echo -e "══════════════════════════"
+}
+
+run_input
+run_user
+run_write
+run_service
+run_output

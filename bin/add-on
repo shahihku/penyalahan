@@ -1,0 +1,9 @@
+#!/bin/bash
+sed -i "s/#@#//g" /etc/xray/trojan*
+sed -i "s/#@#//g" /etc/xray/vmess*
+sed -i "s/#@#//g" /etc/xray/vless*
+date=$(date)
+echo -e "$date \nSuccesfully Unban All Account \n" > /etc/gboy/log/trojan/trojan.log
+echo -e "$date \nSuccesfully Unban All Account \n" > /etc/gboy/log/vless/vless.log
+echo -e "$date \nSuccesfully Unban All Account \n" > /etc/gboy/log/vmess/vmess.log
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+echo -e "════════════════════════════════════════" | lolcat
+echo -e "     ═══[$(cat /etc/xray/domain)]═══"
+echo -e "════════════════════════════════════════" | lolcat
+echo -e ""
+echo -e " SSH "
+echo -e ""
+echo -e "$(cat /etc/gboy/log/ssh/ssh.log)"
+echo -e ""
+echo -e "════════════════════════════════════════" | lolcat
+echo -e "Noted : Remove = akun mati selamanya"

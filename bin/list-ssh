@@ -1,0 +1,25 @@
+#!/bin/bash
+clear
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "     =[ Member SSH Pertamax ]=         "
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#sleep 10
+#data=Ayangku
+data=( `cat /etc/passwd | grep home | cut -d ' ' -f 1 | cut -d : -f 1`);
+for user in "${data[@]}"
+do
+if [[ 12 -gt 0 ]]; then
+exp=$(chage -l $user | grep -i "Account expires" | cut -d : -f 2)
+echo -e "\e[33;1mUser\e[32;1m  : $user"
+echo -e "\e[33;1mExp\e[32;1m   : $exp"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "slot" >> /root/system
+else
+echo > /dev/null
+fi
+sleep 0.1
+done
+aktif=$(cat /root/system | wc -l)
+echo -e "$aktif Member Active"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sed -i "d" /root/system

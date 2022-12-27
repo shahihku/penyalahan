@@ -1,0 +1,39 @@
+#!/bin/bash
+run_input() {
+read -p "Input Username : " user
+}
+
+run_user () {
+akun=$(cat /etc/passwd | grep home | cut -d ' ' -f 1 | cut -d : -f 1 | grep $user)
+if [ $akun = $user ]; then
+echo > /dev/null
+else
+echo -e "Maaf username yang anda masukan salah"
+echo -e "Tidak terdaftar di ssh"
+exit
+fi
+}
+
+run_write() {
+userdel -f -r $user
+rm /etc/gboy/limit/ssh/ip/$user
+}
+
+run_output() {
+domain=$(cat /etc/xray/domain)
+clear
+echo -e "══════════════════════════"
+echo -e "      =[ Ssh ]= "
+echo -e "══════════════════════════"
+echo ""
+echo -e "User   : $user"
+echo -e "Domain : $domain"
+echo ""
+echo -e "User Berhasil di hapus"
+echo -e "══════════════════════════"
+}
+
+run_input
+run_user
+run_write
+run_output

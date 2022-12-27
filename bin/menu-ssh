@@ -1,0 +1,105 @@
+#!/bin/bash
+run_banner() {
+clear
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e "                 • MahaVpn •                 "
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e ""
+}
+
+run_back() {
+echo ""
+read -p "Pres Enter kembali ke HOME : " jejeje        
+menu-ssh        
+}
+
+run_template() {        
+echo -e ""
+echo -e "Just Info"
+echo -e "Silahkan anda cari kata (run_output) "         
+echo -e "Lalu tinggal anda edit dan tambah"
+echo -e "Untuk keluar dari edtior pencet aja CTRL + X"        
+read -p "Pres enter to Next : " kwow
+nano /usr/bin/addssh
+}
+
+run_info() {
+echo -e "Informasi menambah akun"
+echo -e ""
+echo -e "Format Limit IP login"
+echo -e "0 untuk unlimited login"        
+echo -e ""
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e ""        
+}
+
+clear
+echo -e "\e[32m════════════════════════════════════════" | lolcat
+echo -e "             ═══[ SSH ]═══"
+echo -e "\e[32m════════════════════════════════════════" | lolcat
+echo -e " 1)  Create SSH Account"
+echo -e " 2)  Deleting SSH Account"
+echo -e " 3)  Renew SSH Account"
+echo -e " 4)  Check User Login SSH"
+echo -e " 5)  List Member SSH"
+echo -e " 6)  Log Banned user Multi Login"
+echo -e " 7)  Edit Template Akun Ssh"
+echo -e " 8)  Edit Banner Akun Ssh"
+echo -e ""
+echo -e "\e[1;32m══════════════════════════════════════════\e[m"
+echo -e " x)   MENU UTAMA"
+echo -e "\e[1;32m══════════════════════════════════════════\e[m"
+echo -e ""
+read -p "     Please Input Number  [1-4 or x] :  "  menu
+echo -e ""
+case $menu in
+1)
+run_banner
+run_info
+addssh
+run_back
+;;
+2)
+run_banner
+delssh
+run_back
+;;
+3)
+run_banner
+renewsshprem
+run_back
+;;
+4)
+run_banner
+cek-ssh
+run_back
+;;
+5)
+list-ssh
+run_back
+;;
+6)
+log-ssh
+run_back
+;;
+7)
+run_banner
+run_template
+run_back
+;;
+8)
+run_template
+nano /etc/issue.net
+run back
+;;
+x)
+gboy
+;;
+*)
+echo "Maaf Tuan salah tekan"
+sleep 1
+menu-ssh
+;;
+esac
+
+

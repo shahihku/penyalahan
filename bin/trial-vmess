@@ -1,0 +1,50 @@
+#!/bin/bash
+#warna
+red='\033[0;31m'
+ori='\033[0m'
+run_banner() {
+clear
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e "                 • MahaVpn •                 "
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e ""
+}
+
+run_info() {
+echo -e " Informasi Trial" 
+echo -e ""
+echo -e " Format Waktu" 
+echo -e ""
+echo -e " h = jam  "
+echo -e " m = menit "
+echo -e ""
+echo -e " Contoh Trial"
+echo -e " Waktu Trial : ${red}30m${ori} (untuk 30 menit"
+echo -e " Waktu Trial : ${red}2h${ori} (untuk 2 jam"
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat    
+}
+
+
+    
+run_input() {
+user=$(echo -e "Trial-$(echo $[ $RANDOM % 99999 + 12345 ])")      
+read -p " Waktu Trial : " waktu
+read -p " Quota (GB)  : " quota        
+}
+   
+run_mesin() {
+printf "${user}\n0\n${quota}\n1" | add-vmess-trial 
+}  
+    
+run_delete() {
+sleep ${waktu}
+printf $user | del-vmess-trial        
+}   
+    
+run_banner
+run_info
+run_input
+run_mesin
+run_delete > /dev/null & 
+
+

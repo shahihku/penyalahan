@@ -1,0 +1,34 @@
+#!/bin/bash
+date=$(date)
+trojan=$(cat /etc/xray/trojan* | grep '#@#' | wc -l)
+vmess=$(cat /etc/xray/vmess* | grep '#@#' | wc -l)
+vless=$(cat /etc/xray/vless* | grep '#@#' | wc -l)
+if [[ $trojan -gt 0 ]]; then
+echo -e "$date \nSuccesfully Unban All Account \n" >> /etc/gboy/log/trojan/trojan.log
+sed -i "s/#@#//g" /etc/xray/trojan*
+systemctl restart trojan-ws
+systemctl restart trojan-grpc
+else
+echo > /dev/null
+fi
+echo > /dev/null
+if [[ $vless -gt 0 ]]; then
+echo -e "$date \nSuccesfully Unban All Account \n" >> /etc/gboy/log/vless/vless.log
+sed -i "s/#@#//g" /etc/xray/vless*
+systemctl restart vless-ws
+systemctl restart vless-grpc
+else
+echo > /dev/null
+fi
+echo > /dev/null
+if [[ $vmess -gt 0 ]]; then
+echo -e "$date \nSuccesfully Unban All Account \n" >> /etc/gboy/log/vmess/vmess.log
+sed -i "s/#@#//g" /etc/xray/vmess*            
+systemctl restart vmess-ws
+systemctl restart vmess-ws-orbit
+systemctl restart vmess-ws-orbit1
+systemctl restart vmess-grpc
+else
+echo > /dev/null
+fi
+echo > /dev/null

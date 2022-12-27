@@ -1,0 +1,104 @@
+#!/bin/bash
+run_banner() {
+clear
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e "                 • MahaVpn •                 "
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e ""
+}
+
+run_back() {
+echo ""
+read -p "Pres Enter kembali ke HOME : " jejeje        
+menu-vless       
+}
+
+run_template() {        
+echo -e ""
+echo -e "Just Info"
+echo -e "Silahkan anda cari kata (run_output) "         
+echo -e "Lalu tinggal anda edit dan tambah"
+echo -e "Untuk keluar dari edtior pencet aja CTRL + X"        
+read -p "Pres enter to Next : " kwow
+nano /usr/bin/add-vless
+}
+
+run_info() {
+echo -e "Informasi menambah akun"
+echo -e ""
+echo -e "Format Limit IP login"
+echo -e "0 untuk unlimited login"        
+echo -e ""
+echo -e "Format Limit Quota "
+echo -e "0 untuk unlimited Quota"         
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | lolcat
+echo -e ""        
+}
+
+clear
+echo -e "\e[32m════════════════════════════════════════" | lolcat
+echo -e "             ═══[Vless]═══"
+echo -e "\e[32m════════════════════════════════════════" | lolcat
+echo -e " 1)  Create Vless Account"
+echo -e " 2)  Trial Vless Account"
+echo -e " 3)  Deleting Vless Account"
+echo -e " 4)  Renew Vless Account"
+echo -e " 5)  Check User Login Vless"
+echo -e " 6)  List Member Vless"
+echo -e " 7)  Log Banned user Multi Login"
+echo -e " 8)  Edit Template Akun Vless"
+echo -e ""
+echo -e "\e[1;32m══════════════════════════════════════════\e[m"
+echo -e " x)   MENU UTAMA"
+echo -e "\e[1;32m══════════════════════════════════════════\e[m"
+echo -e ""
+read -p "     Please Input Number  [1-4 or x] :  "  menu
+echo -e ""
+case $menu in
+1)
+run_banner
+run_info
+add-vless
+;;
+2)
+trial-vless
+;;
+3)
+run_banner
+del-vless
+run_back
+;;
+4)
+run_banner
+renew-vless-prem
+run_back
+;;
+5)
+run_banner
+cek-vless
+run_back
+;;
+6)
+list-vless
+run_back
+;;
+7)
+log-vless
+run_back
+;;
+8)
+run_banner
+run_template
+run_back
+;;
+x)
+gboy
+;;
+*)
+echo "Maaf Tuan salah tekan"
+sleep 1
+menu-vless
+;;
+esac
+
+
