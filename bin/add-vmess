@@ -12,7 +12,7 @@ read -p "Masaaktif        : " masaaktif
 #QUOTA
 run_quota() {
 if [[ $quota -gt 0 ]]; then
-echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/funny/limit/vmess/quota/$user
+echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/gboy/limit/vmess/quota/$user
 else
 echo > /dev/null
 fi
@@ -21,7 +21,7 @@ fi
 #IPLIMIT
 run_iplimit() {
 if [[ $iplimit -gt 0 ]]; then
-echo -e "$iplimit" > /etc/funny/limit/vmess/ip/$user
+echo -e "$iplimit" > /etc/gboy/limit/vmess/ip/$user
 else
 echo > /dev/null
 fi
