@@ -6,7 +6,7 @@ read -p "Max IP         : " iplimit
 read -p "Expired (Days) : " masaaktif
 #limitip
 if [[ $iplimit -gt 0 ]]; then
-echo -e "$iplimit" > /etc/funny/limit/ssh/ip/$user
+echo -e "$iplimit" > /etc/gboy/limit/ssh/ip/$user
 else
 echo > /dev/null
 fi
